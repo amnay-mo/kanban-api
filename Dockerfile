@@ -2,6 +2,6 @@ FROM alpine:latest
 
 LABEL maintainer="amnay.m@gmail.com"
 
-ENTRYPOINT [ "/todos" ]
+ENTRYPOINT [ "/kanban-api" ]
 
-COPY ./todos /
+COPY ./kanban-api /
