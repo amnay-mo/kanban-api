@@ -1,0 +1,26 @@
+branches:
+  except:
+    - master
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - CLOUDSDK_CORE_DISABLE_PROMPTS: 1
+
+language: go
+go:
+  - "1.9"
+
+script:
+  - GOARCH=amd64 CGO_ENABLED=0 GOOS=linux go build
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: .travis/deploy.sh
+  on:
+    tags: true
